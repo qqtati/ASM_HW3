@@ -155,22 +155,22 @@ double a = 0;
 ![7_1](crit/7_1.png)
 - Выполнена реализация программы на ассемблере в виде двух единиц компиляции (так же разделена программа на C)
 ```
-gcc -Os -masm=intel -fno-asynchronous-unwind-tables -fno-jump-tables -fno-stack-protector -fno-exceptions part1_e.c -S -Wno-unused-result -o ./part1_e_cl_os.s
+gcc -Os -masm=intel -fno-asynchronous-unwind-tables -fno-jump-tables -fno-stack-protector -fno-exceptions part1_e.c -S -Wno-unused-result -o ./p1_v3.s
 
-gcc -Os -masm=intel -fno-asynchronous-unwind-tables -fno-jump-tables -fno-stack-protector -fno-exceptions part2_e.c -S -Wno-unused-result -o ./part2_e_cl_os.s
+gcc -Os -masm=intel -fno-asynchronous-unwind-tables -fno-jump-tables -fno-stack-protector -fno-exceptions part2_e.c -S -Wno-unused-result -o ./p2_v3.s
 
-gcc part1_e_cl_os.s -c -o part1_e_cl_os.o
+gcc p1_v3.s -c -o p1_v3.o
 
-gcc part2_e_cl_os.s -c -o part2_e_cl_os.o
+gcc p2_v3.s -c -o p2_v3.o
 
-gcc ./part2_e_cl_os.o part1_e_cl_os.o foo_e_cl_os -lm
+gcc ./p2_v3.o p1_v3.o ans3 -lm
 
 ```
 ---
 ![7_2](crit/7_2.png)
 - Для ввода/вывода результата из файла необходимо ввести:
 ```
-./foo_el_cl_os 3 {path to input file} {path to output file}
+./ans 3 {path to input file} {path to output file}
 ```
 - Командная строка проверяет корректность, если что-то пойдёт не так - результат будет "Invalid input" и программа завершит выполнение.
 ---
@@ -178,8 +178,11 @@ gcc ./part2_e_cl_os.o part1_e_cl_os.o foo_e_cl_os -lm
 - input.txt = {15}
 *Тест 1*
 ![](ftest1)
+*Output1*
 ![](output1)
+*Output2*
 ![](output2)
+*Output3*
 ![](output3)
 ---
 ![7_4](crit/7_4.png)
@@ -189,7 +192,7 @@ gcc ./part2_e_cl_os.o part1_e_cl_os.o foo_e_cl_os -lm
 
 ## 8 баллов
 ![8_1](crit/8_1.png)
-- Добавлен генератор случайных чисел, генерирующий числа в диапазоне [-100;15]
+- Добавлен генератор случайных чисел
 ```
 double randomValue() {
     srand(time(NULL));
@@ -214,7 +217,7 @@ double randomValue() {
 ```
 ---
 ![8_3](crit/8_3.png)
-- Добавлены функции замера времени, это можно увидеть в файле part1_e.c:
+- Добавлены функции замера времени, это можно увидеть в файле p1.c:
 ```
 struct timespec start;
 struct timespec end;
