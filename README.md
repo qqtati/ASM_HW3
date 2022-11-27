@@ -176,7 +176,7 @@ gcc ./p2_v3.o p1_v3.o ans3 -lm
 ---
 ![7_3](crit/7_3.png) input.txt = {15}
 *Тест 1*
-![7_3](test/ftest1.png)
+![7_3](test/filetests.png)
 *Output1*
 ![7_3](test/output1.png)
 *Output2*
