@@ -123,25 +123,7 @@ double a = 0;
 ---
 ![6_3](crit/6_3.png)
 *Тест 1*
-![]()
-*Тест 2*
-![]()
-*Тест 3*
-![]()
-*Тест 4*
-![]()
-*Тест 5*
-![]()
-*Тест 6*
-![]()
-*Тест 7*
-![]()
-*Тест 8*
-![]()
-*Тест 9*
-![]()
-*Тест 10*
-![]()
+![](test/test_v3/png)
 ---
 - Вес файла p1.s - 7 164  Б.
 - Вес файла p1_v3.s - 5 653 Б.
@@ -155,9 +137,9 @@ double a = 0;
 ![7_1](crit/7_1.png)
 - Выполнена реализация программы на ассемблере в виде двух единиц компиляции (так же разделена программа на C)
 ```
-gcc -Os -masm=intel -fno-asynchronous-unwind-tables -fno-jump-tables -fno-stack-protector -fno-exceptions part1_e.c -S -Wno-unused-result -o ./p1_v3.s
+gcc -Os -masm=intel -fno-asynchronous-unwind-tables -fno-jump-tables -fno-stack-protector -fno-exceptions p1.c -S -Wno-unused-result -o ./p1_v3.s
 
-gcc -Os -masm=intel -fno-asynchronous-unwind-tables -fno-jump-tables -fno-stack-protector -fno-exceptions part2_e.c -S -Wno-unused-result -o ./p2_v3.s
+gcc -Os -masm=intel -fno-asynchronous-unwind-tables -fno-jump-tables -fno-stack-protector -fno-exceptions p2.c -S -Wno-unused-result -o ./p2_v3.s
 
 gcc p1_v3.s -c -o p1_v3.o
 
