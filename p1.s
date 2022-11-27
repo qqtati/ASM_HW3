@@ -3,7 +3,7 @@
 	.text
 	.globl	randomValue
 	.type	randomValue, @function
-randomValue:
+randomValue:                                 #функция randomValue
 .LFB6:
 	.cfi_startproc
 	endbr64
@@ -18,14 +18,14 @@ randomValue:
 	call	srand@PLT
 	call	rand@PLT
 	pxor	xmm0, xmm0
-	cvtsi2sd	xmm0, eax
+	cvtsi2sd	xmm0, eax                       #Convert Doubleword Integer to Scalar Double-Precision Floating-Point Value
 	movsd	xmm2, QWORD PTR .LC0[rip]
 	movapd	xmm1, xmm0
-	divsd	xmm1, xmm2
+	divsd	xmm1, xmm2                  #(double)rand()/RAND_MAX
 	movsd	xmm0, QWORD PTR .LC1[rip]
-	mulsd	xmm0, xmm1
+	mulsd	xmm0, xmm1                  #результат левой части * 115
 	movsd	xmm1, QWORD PTR .LC2[rip]
-	subsd	xmm0, xmm1
+	subsd	xmm0, xmm1                  #представление 115
 	movq	rax, xmm0
 	movq	xmm0, rax
 	pop	rbp
@@ -36,19 +36,19 @@ randomValue:
 	.size	randomValue, .-randomValue
 	.section	.rodata
 .LC4:
-	.string	"%lf"
+	.string	"%lf"                       #формат-строка для получения double из консоли
 .LC5:
-	.string	"r"
+	.string	"r"                         #r -> read строка формат для чтения из файлв
 .LC6:
-	.string	"Invalid input!"
+	.string	"Invalid input!"            #строка для обработки некорректного ввода
 .LC12:
-	.string	"w"
+	.string	"w"                         #w -> write cтрока для запись в файл
 .LC13:
-	.string	"Result: %.50lf\n"
+	.string	"Result: %.50lf\n"          #строка-формат для вывода результата
 .LC15:
-	.string	"Precision: %.20lf%%\n"
+	.string	"Precision: %.20lf%%\n"     #строка-формат для вывода точности
 .LC16:
-	.string	"Time: %lld ns\n"
+	.string	"Time: %lld ns\n"           #строка-формат для вывола времени исполнения программы
 	.text
 	.globl	main
 	.type	main, @function
@@ -62,10 +62,10 @@ main:
 	mov	rbp, rsp
 	.cfi_def_cfa_register 6
 	sub	rsp, 144
-	mov	DWORD PTR -116[rbp], edi
-	mov	QWORD PTR -128[rbp], rsi
+	mov	DWORD PTR -116[rbp], edi            #представление int argc
+	mov	QWORD PTR -128[rbp], rsi             #представление char** argv
 	mov	rax, QWORD PTR fs:40
-	mov	QWORD PTR -8[rbp], rax
+	mov	QWORD PTR -8[rbp], rax               #представление double result = 0
 	xor	eax, eax
 	pxor	xmm0, xmm0
 	movsd	QWORD PTR -96[rbp], xmm0
@@ -132,7 +132,7 @@ main:
 	jmp	.L17
 .L5:
 	pxor	xmm0, xmm0
-	movsd	QWORD PTR -88[rbp], xmm0
+	movsd	QWORD PTR -88[rbp], xmm0             #представление double a = 0
 	lea	rax, -48[rbp]
 	mov	rsi, rax
 	mov	edi, 1
@@ -222,7 +222,7 @@ main:
 	mov	QWORD PTR -72[rbp], rax
 	cmp	DWORD PTR -116[rbp], 4
 	jne	.L15
-	mov	rax, QWORD PTR -128[rbp]
+	mov	rax, QWORD PTR -128[rbp]            #Представление FILE *output_file
 	add	rax, 24
 	mov	rax, QWORD PTR [rax]
 	lea	rdx, .LC12[rip]

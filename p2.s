@@ -10,11 +10,11 @@ factorial:
 	push	rbp
 	.cfi_def_cfa_offset 16
 	.cfi_offset 6, -16
-	mov	rbp, rsp
+	mov	rbp, rsp                                #rbp := rsp
 	.cfi_def_cfa_register 6
-	movsd	QWORD PTR -24[rbp], xmm0
+	movsd	QWORD PTR -24[rbp], xmm0            #входной параметр функции double x
 	movsd	xmm0, QWORD PTR .LC0[rip]
-	movsd	QWORD PTR -8[rbp], xmm0
+	movsd	QWORD PTR -8[rbp], xmm0             #локальная переменная double i
 	jmp	.L2
 .L3:
 	movsd	xmm0, QWORD PTR -8[rbp]
