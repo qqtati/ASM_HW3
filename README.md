@@ -176,13 +176,13 @@ gcc ./p2_v3.o p1_v3.o ans3 -lm
 ---
 ![7_3](crit/7_3.png) input.txt = {15}
 *Тест 1*
-![](test/ftest1)
+![7_3](test/ftest1)
 *Output1*
-![](test/output1)
+![7_3](test/output1)
 *Output2*
-![](test/output2)
+![7_3](test/output2)
 *Output3*
-![](test/output3)
+![7_3](test/output3)
 ---
 ![7_4](crit/7_4.png)
 - Добавлена возможность ввода/вывода из файла
